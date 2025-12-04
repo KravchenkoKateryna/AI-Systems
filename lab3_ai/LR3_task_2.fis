@@ -1,0 +1,57 @@
+[System]
+Name='LR3_task_2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=15
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='T'
+Range=[15 30]
+NumMFs=5
+MF1='Дуже_холодна':'trimf',[15 15 19]
+MF2='Холодна':'trimf',[17 20 23]
+MF3='В_нормі':'trimf',[20 22.5 25]
+MF4='Тепла':'trimf',[23 26 29]
+MF5='Дуже_тепла':'trimf',[27 30 30]
+
+[Input2]
+Name='dT'
+Range=[-1 1]
+NumMFs=3
+MF1='Відємна':'trimf',[-1 -1 -0.2]
+MF2='Нуль':'trimf',[-0.1 0 0.1]
+MF3='Додатня':'trimf',[0.2 1 1]
+
+[Output1]
+Name='C'
+Range=[-10 10]
+NumMFs=5
+MF1='Великий_холод':'trimf',[-10 -10 -5]
+MF2='Невеликий_холод':'trimf',[-5 -2 0]
+MF3='Вимкнено':'trimf',[-1 0 1]
+MF4='Невелике_тепло':'trimf',[0 2 5]
+MF5='Велике_тепло':'trimf',[5 10 10]
+
+[Rules]
+5 3, 1 (1) : 1
+5 1, 2 (1) : 1
+4 3, 1 (1) : 1
+4 1, 3 (1) : 1
+1 1, 5 (1) : 1
+1 3, 4 (1) : 1
+2 1, 5 (1) : 1
+2 3, 3 (1) : 1
+5 2, 1 (1) : 1
+4 2, 2 (1) : 1
+1 2, 5 (1) : 1
+2 2, 4 (1) : 1
+3 3, 2 (1) : 1
+3 1, 4 (1) : 1
+3 2, 3 (1) : 1
